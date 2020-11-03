@@ -1,6 +1,5 @@
 # 取得空氣品質專案的值
-
-import requests
+import requests,json
 
 # device對照表
 '''
@@ -56,8 +55,8 @@ return data example : {
  }
 '''
 # default為六家校區-西北側自強南路面
-result = get_air_data()
-print(result)
+#result = get_air_data()
+#print(result)
 # 或是填入上面的代號
 result = get_air_data(24448091106)
 print(result)
