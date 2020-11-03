@@ -47,7 +47,7 @@ while True:
         time.sleep(5)
         print(len(push_list))
     #Push data to a device feature called "Dummy_Sensor"
-        result = get_air_data(24450111167)
+        result = get_air_data(24450246464)
         print(result)
         warning_string = "空氣品質不佳"
         print("push data: ",result['lat'])
