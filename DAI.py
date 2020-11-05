@@ -47,7 +47,7 @@ while True:
         time.sleep(5)
         print(len(push_list))
     #Push data to a device feature called "Dummy_Sensor"
-        result = get_air_data(24450246464)
+        result = get_air_data(24449803581)
         print(result)
         warning_string = "空氣品質不佳"
         print("push data: ",result['lat'])
@@ -58,9 +58,9 @@ while True:
         map_push_flag = 0  # increase obstacle(warning) on map
         map_del_flag = 1   # delete obstacle(warning) on map
         if len(push_list)==0 and int(result['if_too_high']['pm2.5'])==1:
-            push_list.append([result['lat'], result['lon'], result['name'], int(result['if_too_high']['pm2.5']), warning_string])
+            push_list.append([result['lat'], result['lon'], result['name'], map_push_flag, warning_string])
             DAN.push ('IoTWaring', result['lat'], result['lon'], result['name'], map_push_flag, warning_string)
-        if int(result['if_too_high']['pm2.5'])==1 and len(push_list)==0:
+        if int(result['if_too_high']['pm2.5'])==0 and len(push_list)!=0:
             DAN.push ('IoTWaring', result['lat'], result['lon'], result['name'], map_del_flag, warning_string)
             push_list.clear()
 
